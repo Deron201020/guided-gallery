@@ -3,74 +3,243 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Guided — Travel Smarter</title>
+  <title>Guided – Plan Travel Smarter</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+      background-color: #fff;
       line-height: 1.6;
-      margin: 0 auto;
-      padding: 2rem;
-      max-width: 800px;
-      background-color: #f7f7f7;
-      color: #333;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    h1, h2 {
-      color: #2a5bd7;
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
-    ul {
-      padding-left: 1.2rem;
+    a:hover,
+    a:focus {
+      color: #155ab6;
+      outline: none;
     }
-    p {
-      margin-bottom: 1em;
+
+    header {
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      padding: 20px 15px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .section {
-      margin-bottom: 2em;
-    }
-    footer {
-      margin-top: 3em;
-      font-size: 0.9em;
-      color: #666;
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #1a73e8;
       text-align: center;
+    }
+
+    nav {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    nav a img {
+      height: 44px;
+      border-radius: 8px;
+      filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+      transition: transform 0.2s ease;
+    }
+    nav a img:hover,
+    nav a img:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Hero section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 60vh;
+      padding: 0 20px;
+      background: 
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('https://via.placeholder.com/1200x500') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    /* Sections */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 40px;
+    }
+    /* Reverse layout for even sections */
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .text, .image {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+    .text h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #1a73e8;
+    }
+    .text p {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      color: #444;
+    }
+    .image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease;
+    }
+    .image img:hover {
+      transform: scale(1.03);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #f4f6f8;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 0.95rem;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+    footer a {
+      font-weight: 600;
+      color: #1a73e8;
+    }
+    footer a:hover,
+    footer a:focus {
+      color: #155ab6;
+      outline: none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .section {
+        flex-direction: column !important;
+      }
+      .text, .image {
+        max-width: 100%;
+      }
+      .hero h2 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Guided – Your Smart Travel Companion</h1>
 
-  <div class="section">
-    <h2>Business Name</h2>
-    <p><strong>Guided</strong></p>
+<header>
+  <h1>Guided</h1>
+  <nav aria-label="Support and product links">
+    <!-- Product Hunt Badge -->
+    <a href="https://www.producthunt.com/posts/guided-a-new-way-to-travel?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-guided-a-new-way-to-travel" target="_blank" rel="noopener noreferrer" aria-label="Guided on Product Hunt">
+      <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1000506&theme=light" alt="Guided: A new way to travel - Featured on Product Hunt" />
+    </a>
+
+    <!-- Indiegogo Button -->
+    <a href="https://igg.me/at/nm77yYLE4rs/x/38698989#/" target="_blank" rel="noopener noreferrer" aria-label="Support Guided on Indiegogo">
+      <img src="https://img.shields.io/badge/Support%20on-Indiegogo-EB1478?style=for-the-badge&logo=indiegogo&logoColor=white" alt="Support on Indiegogo" />
+    </a>
+
+    <!-- GoFundMe Button -->
+    <a href="https://gofund.me/e72cfaca" target="_blank" rel="noopener noreferrer" aria-label="Support Guided on GoFundMe">
+      <img src="https://img.shields.io/badge/Support%20on-GoFundMe-02b85c?style=for-the-badge&logo=paypal&logoColor=white" alt="Support on GoFundMe" />
+    </a>
+  </nav>
+</header>
+
+<section class="hero" role="banner">
+  <div>
+    <h2>Your All-in-One Travel Planner</h2>
+    <p>Flights, hotels, tours & AI-powered trip planning — all in one place.</p>
   </div>
+</section>
 
-  <div class="section">
-    <h2>What We Offer</h2>
-    <p>
-      Guided is a next-generation travel assistant that helps users plan, book, and manage their trips with ease. The app consolidates hotel, flight, and tour bookings in one clean interface and enhances trips with real-time insights and a built-in AI assistant.
-    </p>
-    <ul>
-      <li>Hotel, flight, and tour booking in one place</li>
-      <li>Real-time weather alerts and travel nudges</li>
-      <li>AI assistant to build and edit full trip plans</li>
-      <li>Chronological cart to manage bookings</li>
-      <li>Smart filters by budget, rating, airline, and more</li>
-      <li>Natural-language search like “hotels in Rome next week”</li>
-    </ul>
+<section class="section" role="region" aria-labelledby="what-guided">
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400" alt="Guided App Screenshot" loading="lazy" />
   </div>
-
-  <div class="section">
-    <h2>Contact Information</h2>
-    <p>Email: irinamavromatis85@gmail.com</p>
+  <div class="text">
+    <h2 id="what-guided">What is Guided?</h2>
+    <p>Guided is a travel app that brings together everything you need to plan a trip — from flights and hotels to tours and personalized itineraries — all in one simple interface.</p>
+    <p>Instead of flipping between websites and booking engines, you can search manually or ask our AI assistant to handle it. Just type something like "Flights to Tokyo" and you’ll get organized, relevant results instantly.</p>
   </div>
+</section>
 
-  <div class="section">
-    <h2>Status</h2>
-    <p>
-      Guided is fully built and functional on Android. A web version is currently in development. Fundraising is ongoing to support marketing and final enhancements before full launch.
-    </p>
+<section class="section" role="region" aria-labelledby="why-guided">
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400" alt="Travel Planning" loading="lazy" />
   </div>
+  <div class="text">
+    <h2 id="why-guided">Why Guided?</h2>
+    <p>Trip planning has become more chaotic than ever — open 10 tabs, compare prices, check the weather, read reviews… It’s a mess. Guided solves this by offering smart filters, live weather integration, and trustworthy data sources like Aviasales, Tiqets, and Hotellook, all in one place.</p>
+    <p>We built Guided to feel natural, intuitive, and even enjoyable. Whether you're planning a family vacation or a solo backpacking trip, Guided saves time and cuts stress.</p>
+  </div>
+</section>
 
-  <footer>
-    &copy; 2025 Guided. All rights reserved.
-  </footer>
+<section class="section" role="region" aria-labelledby="support-guided">
+  <div class="image">
+    <img src="https://via.placeholder.com/600x400" alt="Support Guided" loading="lazy" />
+  </div>
+  <div class="text">
+    <h2 id="support-guided">Support the Journey</h2>
+    <p>We're in the final stages of development. We've built the core, partnered with major travel platforms, and tested the features. Now we’re fundraising to polish the user experience, finalize design, and launch the mobile and web apps together.</p>
+    <p>Even $1 helps us move forward. Every bit of support brings us closer to launching Guided and giving people a better way to plan travel.</p>
+  </div>
+</section>
+
+<footer role="contentinfo">
+  <p>© 2025 Guided. All rights reserved.</p>
+  <p>
+    Follow our journey on 
+    <a href="https://www.producthunt.com/posts/guided-a-new-way-to-travel?utm_source=other&utm_medium=social" target="_blank" rel="noopener noreferrer">Product Hunt</a>, 
+    <a href="https://igg.me/at/nm77yYLE4rs/x/38698989#/" target="_blank" rel="noopener noreferrer">Indiegogo</a>, and 
+    <a href="https://gofund.me/e72cfaca" target="_blank" rel="noopener noreferrer">GoFundMe</a>.
+  </p>
+</footer>
+
 </body>
 </html>
